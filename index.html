@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد محمد السعيد - ملف تعريفي مهني</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .name {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .title {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .content {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-right: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover, .education-item:hover {
+            background: #e8f4f8;
+            transform: translateX(-5px);
+        }
+        
+        .job-title, .degree {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .company, .university {
+            color: #667eea;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        
+        .date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .skill-item:hover::before {
+            left: 100%;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .hobbies-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .hobby-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-right: 3px solid #4ecdc4;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hobby-item:hover {
+            background: #e8f8f5;
+            transform: scale(1.02);
+        }
+        
+        .hobby-icon {
+            width: 25px;
+            height: 25px;
+            background: #4ecdc4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 30px;
+                gap: 30px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .hobbies-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-circle:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .floating-circle:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="floating-elements">
+                <div class="floating-circle"></div>
+                <div class="floating-circle"></div>
+                <div class="floating-circle"></div>
+            </div>
+            <div class="profile-img">👨‍💻</div>
+            <h1 class="name">عبدالله احمد عيد الثبيتي</h1>
+            <p class="title">مطور تطبيقات الهاتف المحمول | مختص في React Native</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>ce.a.althobaiti@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>0595275856 966+</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>الطائف، المملكة العربية السعودية</span>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <span>www.linkedin.com/in/abdullha-althobaiti-a87b08349                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>
+                    <div class="section-icon">💼</div>
+                    الخبرة المهنية
+                </h2>
+                <div class="experience-item">
+                    <div class="job-title">مطور مواقع</div>
+                    <div class="company">شركة التقنيات المتقدمة</div>
+                    <div class="date">2022 - حتى الآن</div>
+                    <div class="description">
+                        مطور مواقع  و متصفحات
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="job-title">مطور تطبيقات</div>
+                    <div class="company">مؤسسة الحلول الرقمية</div>
+                    <div class="date">2020 - 2022</div>
+                    <div class="description">
+                        تطوير تطبيقات iOS وAndroid، والتعاون مع فرق التصميم والخلفية لتقديم حلول متكاملة.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <div class="section-icon">🎓</div>
+                    التعليم
+                </h2>
+                <div class="education-item">
+                    <div class="degree">بكالوريوس هندسة الحاسب</div>
+                    <div class="university">جامعة الطائفة</div>
+                    <div class="date">2020 - 2025</div>
+                    <div class="description">
+                     تخصص هندسة البرمجيات، تقدير ممتاز  
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <div class="section-icon">⚡</div>
+                    المهارات التقنية
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-item">React Native</div>
+                    <div class="skill-item">Flutter</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">TypeScript</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">MongoDB</div>
+                    <div class="skill-item">Firebase</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">AWS</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <div class="section-icon">🌟</div>
+                    الهوايات والاهتمامات المهنية
+                </h2>
+                <div class="hobbies-list">
+                    <div class="hobby-item">
+                        <div class="hobby-icon">🤖</div>
+                        <span>دراسة الذكاء الاصطناعي وتعلم الآلة</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">☁️</div>
+                        <span>استكشاف تقنيات الحوسبة السحابية</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">🔒</div>
+                        <span>أمن المعلومات والاختراق الأخلاقي</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">📱</div>
+                        <span>تطوير تطبيقات الويب الحديثة</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">🎮</div>
+                        <span>برمجة الألعاب ثلاثية الأبعاد</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">📊</div>
+                        <span>تحليل البيانات والإحصاء</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">🌐</div>
+                        <span>تقنيات البلوك تشين والعملات الرقمية</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">🎨</div>
+                        <span>التصميم الجرافيكي وواجهات المستخدم</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section full-width">
+                <h2>
+                    <div class="section-icon">🎯</div>
+                    الأهداف المهنية
+                </h2>
+                <div class="description">
+                    أسعى لتطوير حلول تقنية مبتكرة تساهم في التحول الرقمي للمملكة العربية السعودية. أهدف إلى قيادة فرق تطوير متخصصة وإنشاء تطبيقات تحدث أثراً إيجابياً في حياة المستخدمين. أتطلع لاستكشاف التقنيات الناشئة مثل الذكاء الاصطناعي وإنترنت الأشياء لتطوير حلول مستقبلية تواكب رؤية المملكة 2030.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
